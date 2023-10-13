@@ -3,12 +3,14 @@ const app = expess()
 
 const port = 5000
 
+
+const userRouter = require('./routes/userRoutes')
+app.use('/api', userRouter)
+
+
+
 app.get('/',(req, res)=>{
     res.send('hello from roy home')
-})
-
-app.get('/login',(req, res)=>{
-    res.send('from login')
 })
 
 app.listen(port, ()=>{
