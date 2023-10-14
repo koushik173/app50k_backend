@@ -20,8 +20,8 @@ app.use('/api/problem', userProblemRouters)
 const expartRouter = require('./routes/expartRoutes');
 app.use('/api/expart', expartRouter);
 
-const expartRouter = require('./routes/expartRoutes');
-app.use('/api/hr', expartRouter);
+const hrRouter = require('./routes/expartRoutes');
+app.use('/api/hr', hrRouter);
 
 app.get('/', (req, res) => {
     res.send('hello from roy home');
