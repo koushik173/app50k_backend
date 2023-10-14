@@ -20,7 +20,7 @@ app.use('/api/problem', userProblemRouters)
 const expartRouter = require('./routes/expartRoutes');
 app.use('/api/expart', expartRouter);
 
-const hrRouter = require('./routes/expartRoutes');
+const hrRouter = require('./routes/hrroutes');
 app.use('/api/hr', hrRouter);
 
 app.get('/', (req, res) => {

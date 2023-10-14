@@ -1,0 +1,61 @@
+http://localhost:5000/api/allUser
+
+http://localhost:5000/api/signup
+{
+    "name": "Koushik Roy",
+    "email": "koushikroy298@gmail.com",
+    "phone": "+8801712345678",
+    "password": "Kr12@#@#",
+    "cfpassword": "Kr12@#@#",
+    "address":"bangladesh"
+}
+
+http://localhost:5000/api/login
+{
+    "email": "koushikroy298@gmail.com",
+    "password": "Kr12@#@#"
+}
+
+http://localhost:5000/api/logout
+
+http://localhost:5000/api/problem/create
+{
+    "id": "652a6048d2af7507c52c6da8",
+    "title": "Laptop Hardware",
+    "description": "display not working",
+    "status": "null",
+    "expert": "null",
+    "creatorId": "652a372fd0b0c46dba0ed594"
+}
+
+http://localhost:5000/api/problem/update/652a6048d2af7507c52c6da8
+{
+    "title": "Cpu Hardware",
+    "description": "ram not working"
+}
+
+
+http://localhost:5000/api/problem/getProblem
+
+http://localhost:5000/api/problem/delete/652a6048d2af7507c52c6da8
+
+http://localhost:5000/api/expart/applyExpart
+{
+    "email":"tohin@gmail.com",
+    "name":"Tohin",
+    "phone":"+8801712345678",
+    "address":"sylhet",
+    "projects":"So many",
+    "expartise":"web",
+    "getInterView": false,
+    "hired": false
+}
+
+http://localhost:5000/api/expart/allExpart
+
+http://localhost:5000/api/hr/takeinterview
+{
+    "expartEmail":"tohin@gmail.com", 
+    "zoomlink":"http//", 
+    "expartid":"652a7ce9d2dcf8799a52b3ce"
+}

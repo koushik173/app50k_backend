@@ -1,6 +1,9 @@
 const express = require('express')
-const { getInterview, hireExpart } = require('../Controllers/hrControllers')
 const router  = express.Router()
 
-router.route('/takeinterview').post(getInterview)
+const { hireExpart, takeInterview } = require('../Controllers/hrControllers')
+
+router.route('/takeinterview').post(takeInterview)
 router.route('/gethire').post(hireExpart)
+
+module.exports = router;
