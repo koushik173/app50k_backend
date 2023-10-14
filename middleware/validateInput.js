@@ -3,7 +3,7 @@ const Joi = require('joi')
 exports.validateSignUp = (req, res, next) => {
     const schema = Joi.object({
         name: Joi.string().pattern(/^[A-Z][A-Za-z .]{3,20}$/).required(),
-        email: Joi.string().pattern(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/).required(),
+        email: Joi.string().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
         password: Joi.string().pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/).required(),
         phone: Joi.string().pattern(/(\+88)?-?01[3-9]\d{8}/).required(),
         cfpassword: Joi.string().valid(Joi.ref('password')).required(),
@@ -31,7 +31,7 @@ exports.validateSignUp = (req, res, next) => {
 
 exports.validateLogin = (req, res, next) => {
     const schema = Joi.object({
-        email: Joi.string().pattern(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/).required(),
+        email: Joi.string().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).required(),
         password: Joi.string().pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/).required(),
     });
     const {email, password} = req.body

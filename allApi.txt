@@ -57,6 +57,5 @@ post--> http://localhost:5000/api/hr/takeinterview
 
 post--> http://localhost:5000/api/hr/gethire
 {
-    "acknowledged": true,
-    "message": "Successfully send Congratulations email"
+    "expartEmail":"koushikroy298@gmail.com"
 }
