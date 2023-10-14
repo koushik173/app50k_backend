@@ -8,6 +8,6 @@ const isLoggedIn = require('../middleware/isLoggedIn')
 router.route('/create').post(isLoggedIn,createProblem)
 router.route('/update/:problemId').put(isLoggedIn, updateProblem)
 router.route('/delete/:problemId').delete(isLoggedIn, deleteProblem)
-router.route('/getProblem').get(getProblem)
+router.route('/getProblem/:creatorId').get(isLoggedIn,getProblem)
 
 module.exports = router

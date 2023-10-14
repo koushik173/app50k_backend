@@ -15,7 +15,7 @@ exports.updateProblem = async (req, res, next) => {
       },
     });
 
-    res.json(updatedProblem);
+    res.send({ acknowledged: true, message:"Successfully updated" })
   } catch (error) {
     res.json({ error: `Post with ${problemId} does not exixts` })
   }
@@ -23,23 +23,21 @@ exports.updateProblem = async (req, res, next) => {
 
 exports.createProblem = async (req, res, next) => {
   try {
-    const { title, description, status, expert, creatorId } = req.body;
-
-    // Validation can be added here
-
+    const { title, description, creatorId } = req.body;
     const result = await prisma.problem.create({
       data: {
         title,
         description,
-        status,
-        expert,
+        status: null,
+        expert: null,
         creator: { connect: { id: creatorId } },
       },
     });
 
-    res.json(result);
+    res.send({ acknowledged: true, message:`Successfully ${title} problem created` })
   } catch (error) {
-    next(error);
+    // return res.send({ acknowledged: false, error: error.name });
+    return res.json({ error: `Post with ${creatorId} does not exixts` })
   }
 };
 
@@ -54,15 +52,34 @@ exports.deleteProblem = async (req, res, next) => {
 
     res.json(deletedProblem);
   } catch (error) {
-    next(error);
+    return res.json({ error: `Post with ${problemId} does not exixts` })
   }
 };
 
 exports.getProblem = async (req, res, next) => {
+  const {creatorId} = req.params;
   try {
-    const result = await prisma.problem.findMany()
-    res.json(result)
+    const result = await prisma.problem.findMany({
+      where: {
+        creatorId: creatorId, 
+      },
+    });
+    if (result.length === 0) {
+      return res.json({ error: `No problems found for the user with ID ${userId}` });
+    }
+    res.json(result);
   } catch (error) {
-    res.json({ error: `No post was found` })
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+
+
+// exports.getProblem = async (req, res, next) => {
+//   try {
+//     const result = await prisma.problem.findMany()
+//     res.json(result)
+//   } catch (error) {
+//     return res.json({ error: `No post was found` })
+//   }
+// };

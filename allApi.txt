@@ -1,6 +1,7 @@
-http://localhost:5000/api/allUser
+get-->  http://localhost:5000/api/allUser
 
-http://localhost:5000/api/signup
+
+post--> http://localhost:5000/api/signup
 {
     "name": "Koushik Roy",
     "email": "koushikroy298@gmail.com",
@@ -10,62 +11,52 @@ http://localhost:5000/api/signup
     "address":"bangladesh"
 }
 
-http://localhost:5000/api/login
+
+post-->  http://localhost:5000/api/login
 {
     "email": "koushikroy298@gmail.com",
     "password": "Kr12@#@#"
 }
 
-http://localhost:5000/api/logout
 
-http://localhost:5000/api/problem/create
+get-->   http://localhost:5000/api/logout
+
+
+post--> http://localhost:5000/api/problem/create
 {
-    "id": "652a6048d2af7507c52c6da8",
-    "title": "Laptop Hardware",
-    "description": "display not working",
-    "status": "null",
-    "expert": "null",
-    "creatorId": "652a372fd0b0c46dba0ed594"
+    "title":"mobile Hardware",
+    "description":"display not working",
+    "creatorId":"652ac4e4f7d001f1188e4e91"
 }
 
-http://localhost:5000/api/problem/update/652a6048d2af7507c52c6da8
+put--> http://localhost:5000/api/problem/update/:problemId
 {
-    "title": "Cpu Hardware",
+    "title": "Cooler Hardware",
     "description": "ram not working"
 }
 
+get--> http://localhost:5000/api/problem/getProblem/:problemId
 
-http://localhost:5000/api/problem/getProblem
+delete--> http://localhost:5000/api/problem/delete/:creatorId
 
-http://localhost:5000/api/problem/delete/652a6048d2af7507c52c6da8
-
-http://localhost:5000/api/expart/applyExpart
+post--> http://localhost:5000/api/expart/applyExpart
 {
-    "email":"tohin@gmail.com",
-    "name":"Tohin",
-    "phone":"+8801712345678",
-    "address":"sylhet",
+    "email":"koushikroy298@gmail.com",
     "projects":"So many",
-    "expartise":"web",
-    "getInterView": false,
-    "hired": false
+    "expartise":"web"
 }
 
-http://localhost:5000/api/expart/allExpart
+get--> http://localhost:5000/api/expart/allExpart
 
 
-http://localhost:5000/api/hr/takeinterview
+post--> http://localhost:5000/api/hr/takeinterview
 {
-    "expartEmail":"tohin@gmail.com", 
-    "zoomlink":"http//", 
-    "expartid":"652a7ce9d2dcf8799a52b3ce"
+    "expartEmail":"koushikroy298@gmail.com", 
+    "zoomlink":"http//"
 }
 
-
-http://localhost:5000/api/hr/gethire
+post--> http://localhost:5000/api/hr/gethire
 {
-    "expartEmail":"tohin@gmail.com",
-    "exEmail":"ex2@gmail.com",
-    "exPass":"ex2@gmail",
-    "expartid":"652a7ce9d2dcf8799a52b3ce"
+    "acknowledged": true,
+    "message": "Successfully send Congratulations email"
 }

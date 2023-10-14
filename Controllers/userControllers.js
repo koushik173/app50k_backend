@@ -17,7 +17,7 @@ exports.signup = async (req, res, next) => {
             const message = "Already Have an account with this email"
             return res.send({ acknowledged: false, message })
         }
-
+        
         const user = await prisma.user.create({
             data: {
                 name,
@@ -25,11 +25,11 @@ exports.signup = async (req, res, next) => {
                 phone,
                 password,
                 address,
-                verify: false
+                verify: false,
+                role: 'user'
             }
         })
-        // res.send(user);
-
+        
         cookieToken(user, res)
     } catch (error) {
         return res.status(400).json({ error: error.message });
