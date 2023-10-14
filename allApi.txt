@@ -53,9 +53,19 @@ http://localhost:5000/api/expart/applyExpart
 
 http://localhost:5000/api/expart/allExpart
 
+
 http://localhost:5000/api/hr/takeinterview
 {
     "expartEmail":"tohin@gmail.com", 
     "zoomlink":"http//", 
+    "expartid":"652a7ce9d2dcf8799a52b3ce"
+}
+
+
+http://localhost:5000/api/hr/gethire
+{
+    "expartEmail":"tohin@gmail.com",
+    "exEmail":"ex2@gmail.com",
+    "exPass":"ex2@gmail",
     "expartid":"652a7ce9d2dcf8799a52b3ce"
 }
