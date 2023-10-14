@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 exports.applyExpart = async (req, res, next) =>{
     try {
-        const { projects, expartise, address, phone,name,email } = req.body;
+        const { projects, expartise, address, phone,name,email, getInterView, hired } = req.body;
         // Validation can be added here
         const result = await prisma.expert.create({
           data: {
@@ -13,6 +13,8 @@ exports.applyExpart = async (req, res, next) =>{
             address,
             projects,
             expartise,
+            getInterView,
+            hired
           },
         });
     

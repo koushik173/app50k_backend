@@ -48,4 +48,6 @@ model Expert {
   address String?
   expartise String?
   projects String?
+  getInterView Boolean?
+  hired Boolean?
 }

@@ -49,3 +49,33 @@ exports.validateLogin = (req, res, next) => {
 
     next();
 }
+
+exports.validexpartApp=(req,res,next)=>{
+    const schema = Joi.object({
+        name: Joi.string().pattern(/^[A-Z][A-Za-z .]{3,20}$/).required(),
+        email: Joi.string().pattern(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/).required(),
+        phone: Joi.string().pattern(/(\+88)?-?01[3-9]\d{8}/).required(),
+        address: Joi.string().required(),
+        projects: Joi.string().required(),
+        expartise: Joi.string().required(),
+        getInterView: Joi.boolean(),
+        hired: Joi.boolean(),
+      });
+
+    const { email, name, phone, address, projects, expartise }= req.body
+
+    if (!name || !email ||!phone ||!address ||!projects ||!expartise) {
+        const message = "Please provide all fields";
+        return res.send({ acknowledged: false, message });
+    }
+
+    const { error } = schema.validate(req.body);
+    if (error) {
+        console.log(error);
+        const errorMessage = error.details[0].message;
+        const fieldName = error.details[0].context.key; // Get the field name causing the error
+        res.status(400).json({ error: errorMessage, field: fieldName });
+    }else{
+        next();
+    }
+}
