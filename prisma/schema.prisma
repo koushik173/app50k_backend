@@ -45,7 +45,7 @@ model Expert {
   email   String   @unique
   name    String?
   phone   String?
-  password String?
   address String?
-  problems String?
+  expartise String?
+  projects String?
 }
