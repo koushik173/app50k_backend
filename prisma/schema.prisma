@@ -11,16 +11,16 @@ datasource db {
 }
 
 model User {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   @unique
-  name    String?
-  phone   String?
+  id       String      @id @default(auto()) @map("_id") @db.ObjectId
+  email    String      @unique
+  name     String?
+  phone    String?
   password String?
-  address String?
-  verify  Boolean
-  role  String?
-  tokens  UserToken[]
-  problems Problem[]   // Relationship to problems created by the user
+  address  String?
+  verify   Boolean
+  role     String?
+  tokens   UserToken[]
+  problems Problem[] // Relationship to problems created by the user
 }
 
 model UserToken {
@@ -32,20 +32,22 @@ model UserToken {
 }
 
 model Problem {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  title   String?
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String?
   description String?
-  status  String?
-  expert  String?
-  creator User     @relation(fields: [creatorId], references: [id])
-  creatorId String @db.ObjectId
+  status      String?
+  expert      String?
+  creator     User    @relation(fields: [creatorId], references: [id])
+  creatorId   String  @db.ObjectId
 }
 
 model Expert {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  email   String   @unique
-  expartise String?
-  projects String?
-  getInterView Boolean?
-  hired Boolean?
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  email           String   @unique
+  type          String?
+  experience     String?
+  network_skills String?
+  certifications String?
+  getInterView   Boolean?
+  hired          Boolean?
 }

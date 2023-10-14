@@ -39,23 +39,23 @@ get--> http://localhost:5000/api/problem/getProblem/:problemId
 
 delete--> http://localhost:5000/api/problem/delete/:creatorId
 
-post--> http://localhost:5000/api/expart/applyExpart
+post--> http://localhost:5000/api/expert/applyExpert
 {
     "email":"koushikroy298@gmail.com",
     "projects":"So many",
-    "expartise":"web"
+    "expertise":"web"
 }
 
-get--> http://localhost:5000/api/expart/allExpart
+get--> http://localhost:5000/api/expert/allExpert
 
 
 post--> http://localhost:5000/api/hr/takeinterview
 {
-    "expartEmail":"koushikroy298@gmail.com", 
+    "expertEmail":"koushikroy298@gmail.com", 
     "zoomlink":"http//"
 }
 
 post--> http://localhost:5000/api/hr/gethire
 {
-    "expartEmail":"koushikroy298@gmail.com"
+    "expertEmail":"koushikroy298@gmail.com"
 }

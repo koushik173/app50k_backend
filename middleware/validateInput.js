@@ -50,21 +50,21 @@ exports.validateLogin = (req, res, next) => {
     next();
 }
 
-exports.validexpartApp=(req,res,next)=>{
+exports.validexpertApp=(req,res,next)=>{
     const schema = Joi.object({
         name: Joi.string().pattern(/^[A-Z][A-Za-z .]{3,20}$/).required(),
         email: Joi.string().pattern(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/).required(),
         phone: Joi.string().pattern(/(\+88)?-?01[3-9]\d{8}/).required(),
         address: Joi.string().required(),
         projects: Joi.string().required(),
-        expartise: Joi.string().required(),
+        expertise: Joi.string().required(),
         getInterView: Joi.boolean(),
         hired: Joi.boolean(),
       });
 
-    const { email, name, phone, address, projects, expartise }= req.body
+    const { email, name, phone, address, projects, expertise }= req.body
 
-    if (!name || !email ||!phone ||!address ||!projects ||!expartise) {
+    if (!name || !email ||!phone ||!address ||!projects ||!expertise) {
         const message = "Please provide all fields";
         return res.send({ acknowledged: false, message });
     }

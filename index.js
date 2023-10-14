@@ -17,8 +17,8 @@ app.use('/api', userRouter);
 const userProblemRouters = require('./routes/userProblemRoutes');
 app.use('/api/problem', userProblemRouters)
 
-const expartRouter = require('./routes/expartRoutes');
-app.use('/api/expart', expartRouter);
+const expertRouter = require('./routes/expertRoutes');
+app.use('/api/expert', expertRouter);
 
 const hrRouter = require('./routes/hrroutes');
 app.use('/api/hr', hrRouter);
