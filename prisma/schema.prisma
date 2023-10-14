@@ -14,17 +14,38 @@ model User {
   id      String   @id @default(auto()) @map("_id") @db.ObjectId
   email   String   @unique
   name    String?
-  phone String?
+  phone   String?
   password String?
   address String?
-  verify Boolean
-  tokens UserToken[]
+  verify  Boolean
+  tokens  UserToken[]
+  problems Problem[]   // Relationship to problems created by the user
 }
 
 model UserToken {
   id     String @id @default(auto()) @map("_id") @db.ObjectId
   token  String @unique
   type   String // Example: "authentication", "resetPassword", etc.
-  author   User   @relation(fields: [userId], references: [id])
+  author User   @relation(fields: [userId], references: [id])
   userId String @db.ObjectId
+}
+
+model Problem {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  title   String?
+  description String?
+  status  String?
+  expert  String?
+  creator User     @relation(fields: [creatorId], references: [id])
+  creatorId String @db.ObjectId
+}
+
+model Expert {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  email   String   @unique
+  name    String?
+  phone   String?
+  password String?
+  address String?
+  problems String?
 }

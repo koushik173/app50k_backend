@@ -14,6 +14,9 @@ app.use(cookieParser());
 const userRouter = require('./routes/userRoutes');
 app.use('/api', userRouter);
 
+const userProblemRouters = require('./routes/userProblemRoutes');
+app.use('/api/problem', userProblemRouters)
+
 app.get('/', (req, res) => {
     res.send('hello from roy home');
 });
