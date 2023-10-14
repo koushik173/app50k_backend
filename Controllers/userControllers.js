@@ -3,8 +3,8 @@ const cookieToken = require("../utils/cookieToken");
 
 exports.signup = async (req, res, next) => {
     try {
-        const { name, email, username, password } = req.body
-        if (!name || !email || !password || !username) {
+        const { name, email, phone, password, address } = req.body
+        if (!name || !email || !password || !phone || !address) {
             const message = "Please provide all fields";
             return res.send({ acknowledged: false, message });
         }
@@ -22,8 +22,9 @@ exports.signup = async (req, res, next) => {
             data: {
                 name,
                 email,
-                username,
+                phone,
                 password,
+                address,
                 verify: false
             }
         })
