@@ -50,4 +50,5 @@ model Expert {
   certifications String?
   getInterView   Boolean?
   hired          Boolean?
+  name String?
 }

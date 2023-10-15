@@ -41,9 +41,12 @@ delete--> http://localhost:5000/api/problem/delete/:creatorId
 
 post--> http://localhost:5000/api/expert/applyExpert
 {
-    "email":"koushikroy298@gmail.com",
-    "projects":"So many",
-    "expertise":"web"
+    "type": "Machine Learning Engineer",
+    "name":"nina",
+    "email": "nina.johnson@gmail.com",
+    "experience": "6 years",
+    "network_skills": "",
+    "certifications": "TensorFlow_Developer_Certificate"
 }
 
 get--> http://localhost:5000/api/expert/allExpert
@@ -59,3 +62,7 @@ post--> http://localhost:5000/api/hr/gethire
 {
     "expertEmail":"koushikroy298@gmail.com"
 }
+
+get--> http://localhost:5000/api/expert/allExpertSearch/Hardware
+
+get--> http://localhost:5000/api/expert/allExpertTypes
