@@ -10,7 +10,7 @@ router.route('/allExpert').get(isLoggedIn,allExpert)
 
 router.route('/allExpertTypes').get(isLoggedIn,allExpertTypes)
 
-router.route('/allExpertSearch').get(isLoggedIn,allExpertSearch)
+router.route('/allExpertSearch').post(isLoggedIn,allExpertSearch)
 
 
 

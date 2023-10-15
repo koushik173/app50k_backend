@@ -43,9 +43,8 @@ exports.allExpertTypes = async (req, res, next) => {
   }
 };
 
-// Updated route using path parameter
 exports.allExpertSearch = async (req, res, next) => {
-  const { type } = req.params;
+  const { type } = req.body;
 
   try {
     if (!type) {
@@ -73,10 +72,20 @@ exports.allExpertSearch = async (req, res, next) => {
       },
     });
 
-    const combinedExperts = [...new Set([...experts, ...relatedExperts])];
+    const combinedExperts = experts.concat(relatedExperts);
 
-    res.json(combinedExperts);
+    // Remove duplicate experts based on id
+    const uniqueExperts = combinedExperts.filter(
+      (expert, index, self) => index === self.findIndex((t) => t.id === expert.id)
+    );
+
+    res.json(uniqueExperts);
   } catch (error) {
     return res.status(500).json({ acknowledged: false, error: error.name });
   }
 };
+
+
+exports.expertWork=async(req,res,next)=>{
+
+}

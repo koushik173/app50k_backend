@@ -72,3 +72,8 @@ post--> http://localhost:5000/api/problem/selectExpert
     "expertid":"652ac4e4f7d001f1188e4e91",
     "problemId":"652ac9fd1dd904dd7ea7035d"
 }
+
+post--> http://localhost:5000/api/expert/allExpertSearch
+{
+    "type":"Machine Learning Engineer"
+}
