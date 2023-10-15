@@ -80,4 +80,3 @@ exports.allExpertSearch = async (req, res, next) => {
     return res.status(500).json({ acknowledged: false, error: error.name });
   }
 };
-

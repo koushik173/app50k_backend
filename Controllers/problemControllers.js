@@ -73,6 +73,21 @@ exports.getProblem = async (req, res, next) => {
   }
 };
 
+exports.selectExpert= async (req, res, next)=>{
+  try {
+    const { expertid, problemId } = req.body;
+    const updatedProblem = await prisma.problem.update({
+      where: { id: problemId },
+      data: {
+        expert: expertid
+      },
+    });
+    res.send({ acknowledged: true, message:"Successfully updated" })
+  } catch (error) {
+    res.json({ error: `Post with ${problemId} does not exixts` })
+  }
+
+}
 
 
 // exports.getProblem = async (req, res, next) => {
