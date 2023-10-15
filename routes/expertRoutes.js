@@ -1,6 +1,6 @@
 const express = require('express')
 const router  = express.Router()
-const { applyExpert, allExpert, allExpertTypes, allExpertSearch } = require('../Controllers/expertControllers')
+const { applyExpert, allExpert, allExpertTypes, findPendingWorkForExpert } = require('../Controllers/expertControllers')
 const isLoggedIn = require('../middleware/isLoggedIn')
 
 
@@ -10,8 +10,7 @@ router.route('/allExpert').get(isLoggedIn,allExpert)
 
 router.route('/allExpertTypes').get(isLoggedIn,allExpertTypes)
 
-router.route('/allExpertSearch').post(isLoggedIn,allExpertSearch)
-
+router.route('/findPendingWorkForExpert').post(isLoggedIn,findPendingWorkForExpert)
 
 
 module.exports = router

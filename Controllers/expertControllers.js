@@ -86,6 +86,24 @@ exports.allExpertSearch = async (req, res, next) => {
 };
 
 
-exports.expertWork=async(req,res,next)=>{
 
-}
+exports.findPendingWorkForExpert = async (req, res, next) => {
+  try {
+    const { expertId } = req.params;
+
+
+    const pendingWork = await prisma.problem.findMany({
+      where: {
+        expert: expertId
+      },
+    })
+
+    console.log(pendingWork);
+
+    res.json({ acknowledged: true, pendingWork });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ acknowledged: false, error: `Error finding pending work: ${error.message}` });
+  }
+};
+

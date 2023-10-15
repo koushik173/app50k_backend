@@ -77,3 +77,8 @@ post--> http://localhost:5000/api/expert/allExpertSearch
 {
     "type":"Machine Learning Engineer"
 }
+
+http://localhost:5000/api/expert/findPendingWorkForExpert
+{
+    "expertId":"652b44c01fb03504ab5924ec"
+}
